@@ -13,6 +13,9 @@ const happy = true;
 const finished = false;
 const goal = 3;
 
+const skillColor = "crimson";
+const fontWeigth = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -32,6 +35,19 @@ const goal = 3;
 		<h1>My Astro Site</h1>
         
         <h1>{pageTitle}</h1>
+        <style define:vars={{skillColor, fontWeigth, textCase}}>
+            h1{
+                color: purple;
+                font-size: 4rem;
+            }
+            .skill{
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+          
+          
+        </style>
         <h2>... and my astro site!</h2>
 
         <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
@@ -48,7 +64,7 @@ const goal = 3;
         </ul>
         <p>Minhas Skills são:</p>
         <ul>
-            {skills.map((skill) => <li>{skill}</li>)}
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
         {happy && <p>Eu estou feliz por aprender Astro!</p>}
         {finished && <p>Eu terminel esse tutorial!</p>}
